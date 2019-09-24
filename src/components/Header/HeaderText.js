@@ -7,7 +7,7 @@ export default class HeaderText extends React.PureComponent {
     return (
         <div style={{float:"left", paddingLeft:"10%"}}>
           <Typography variant="h1" component="h2">
-            American Express
+            {this.props.header  }
         </Typography>
         </div>
     );

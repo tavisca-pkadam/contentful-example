@@ -16,7 +16,7 @@ export default class Header extends React.PureComponent {
 
     return (
         <div >
-           <NameList/>
+           <NameList />
             <Banner/>
         </div>
     );

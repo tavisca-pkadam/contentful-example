@@ -12,7 +12,7 @@ export default class Header extends React.PureComponent {
         this.super()
         this.state = {
             data: "",
-            logo: "",
+            logo: this.props.headerName,
             headerText:"",
             locale:"en-US",
         }
@@ -28,7 +28,7 @@ export default class Header extends React.PureComponent {
     return (
         <div >
            <Logo />
-           <HeaderText/>
+           <HeaderText header={this.state.headerText}/>
         </div>
     );
   }
