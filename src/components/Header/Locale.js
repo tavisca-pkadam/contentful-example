@@ -11,17 +11,17 @@ import ListItemText from '@material-ui/core/ListItemText';
 export default class Locale extends React.PureComponent {
   render() {
     return (
-        <div style={{padding:"25px"}}>
+        <div style={{padding:"2px"}}>
            <ToggleButtonGroup
             // value={alignment}
             exclusive
             // onChange={handleAlignment}
             aria-label="text alignment"
           >
-            <ToggleButton value="left" aria-label="left aligned" style={{backgroundColor:"red"}}>
+            <ToggleButton value="left" aria-label="left aligned" style={{backgroundColor:"red", height:"30px"}}>
               English
             </ToggleButton>
-            <ToggleButton value="right" aria-label="centered" style={{backgroundColor:"aqua"}}>
+            <ToggleButton value="right" aria-label="centered" style={{backgroundColor:"aqua", height:"30px"}}>
               Germany   
             </ToggleButton>
             
