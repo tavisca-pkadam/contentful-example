@@ -14,6 +14,11 @@ export default class HeaderText extends React.PureComponent {
     console.log(data);
     return (
       <div style={{ float: "left", paddingLeft: "7%" }}>
+        <link
+          rel="stylesheet"
+          type="text/css"
+          href={this.props.data.fields.css.fields.cssFile.fields.file.url}
+        />
         <Typography variant="h1" component="h2">
           {this.props.data.fields.header.fields.headerTitle}
         </Typography>

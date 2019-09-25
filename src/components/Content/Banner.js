@@ -16,12 +16,25 @@ export default class Banner extends React.PureComponent {
     // console.log(this.props.data.fields.banner);
   }
 
+  VisibilityCheck() {
+    return this.props.data.fields.banner.fields.isVisible
+      ? "visible"
+      : "invisible";
+  }
+
   render() {
     return (
       <div>
-        
         <center>
-          <Paper style={{ width: "40%", marginTop: "30px", visiblity:this.props.data.fields.banner.fields.isVisible  }}>
+          <Paper
+            style={{
+              width: "40%",
+              marginTop: "30px",
+              visiblity: this.props.data.fields.banner.fields.isVisible
+                ? "visible"
+                : "invisible"
+            }}
+          >
             <img
               width="30%"
               height="10%"
