@@ -4,6 +4,7 @@ import './App.css';
 import Header from './template/Header'
 import Content from './template/Content'
 import Locale from './components/Header/Locale'
+import ClientSelect from './components/Header/ClientSelect'
 import Client from './contentful/main'
 
 type Props = {
@@ -18,7 +19,8 @@ export default class App extends React.PureComponent<Props> {
     super()
     this.state = {
       data: "",
-      locale: "en-US"
+      locale: "en-US",
+      client: "USB Bank"
     }
     this.getData = this.getData.bind(this)
     this.handleLocale = this.handleLocale.bind(this)
@@ -46,12 +48,29 @@ export default class App extends React.PureComponent<Props> {
     
   }
 
+  handleClient() {
+    console.log("handleLocale")
+    if(this.state.client === "USB Bank"){
+      this.setState({
+        client: "American Express Bank"
+      })
+      this.getData();
+    } else {
+      
+      this.setState({
+        client: "USB Bank"
+      })
+      this.getData();
+    }
+    
+  }
+
    async getData() {
      await Client.getEntries({
         content_type: "webpage",
        // locale: (this.locale == "de-DE" ? "en-US" :  "de-DE")
        locale: this.state.locale,
-       "fields.webpageName": "USB Bank"
+       "fields.webpageName": this.state.client
       })
       .then((response) => {      
         console.log(response)
@@ -65,11 +84,16 @@ export default class App extends React.PureComponent<Props> {
 
     console.log()
     return  <div className="App" >
-      <div onClick={ () => {this.handleLocale()}}>
+      <center>
+      <div  onClick={ () => {this.handleLocale()}}>
       <Locale/>
         </div>
-    {/* <Header headerName={this.state.data.fields} /> */}
-  {this.state.data.fields && this.state.data.fields.header.fields && <Content data={this.state.data.fields.header.fields}/> }
-   </div>;
+      <div  onClick={ () => {this.handleClient()}}>
+      <ClientSelect/>
+        </div>
+        </center>
+        <Header data={this.state.data}/>
+    <Content data={this.state.data}/>
+       </div>;
   }
 }

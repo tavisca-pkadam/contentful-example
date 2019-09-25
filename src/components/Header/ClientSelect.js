@@ -8,7 +8,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 
-export default class Locale extends React.PureComponent {
+export default class ClientSelect extends React.PureComponent {
   render() {
     return (
         <div style={{padding:"2px"}}>
@@ -19,10 +19,10 @@ export default class Locale extends React.PureComponent {
             aria-label="text alignment"
           >
             <ToggleButton value="left" aria-label="left aligned" style={{backgroundColor:"red", height:"30px"}}>
-              English
+              US Bank
             </ToggleButton>
             <ToggleButton value="right" aria-label="centered" style={{backgroundColor:"aqua", height:"30px"}}>
-              French   
+              AmEx Bank   
             </ToggleButton>
             
           </ToggleButtonGroup>
