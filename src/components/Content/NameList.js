@@ -38,7 +38,7 @@ export default class NameList extends React.PureComponent {
               <TableCell align="left">8308074046</TableCell>
             </TableRow>
            <TableRow key="2">
-              <TableCell align="left">Nilesh</TableCell>
+              <TableCell align="left">Neelesh</TableCell>
               <TableCell align="left">Rajpurohit</TableCell>
               <TableCell align="left">8308074046</TableCell>
             </TableRow>
@@ -49,7 +49,7 @@ export default class NameList extends React.PureComponent {
             </TableRow>
            <TableRow key="4">
               <TableCell align="left">Shravan</TableCell>
-              <TableCell align="left">Rambrug</TableCell>
+              <TableCell align="left">Ramdurg</TableCell>
               <TableCell align="left">8308074046</TableCell>
             </TableRow>
         </TableBody>
