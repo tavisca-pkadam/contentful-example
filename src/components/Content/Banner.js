@@ -9,30 +9,31 @@ import Typography from "@material-ui/core/Typography";
 export default class Banner extends React.PureComponent {
   constructor(props) {
     super(props);
-    console.log("Inside Banner");
+    this.VisibilityCheck = this.visibilityCheck.bind(this)
   }
 
   componentDidUpdate() {
     // console.log(this.props.data.fields.banner);
   }
 
-  VisibilityCheck() {
+visibilityCheck() {
+   
     return this.props.data.fields.banner.fields.isVisible
       ? "visible"
-      : "invisible";
+      : "hidden";
+
   }
 
   render() {
     return (
-      <div>
+      <div style={{marginTop:"10%"}}>
         <center>
           <Paper
             style={{
               width: "40%",
               marginTop: "30px",
-              visiblity: this.props.data.fields.banner.fields.isVisible
-                ? "visible"
-                : "invisible"
+              marginBottom: "50px",
+              visibility: this.visibilityCheck()
             }}
           >
             <img

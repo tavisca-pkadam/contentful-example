@@ -10,6 +10,9 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 export default class Locale extends React.PureComponent {
   render() {
+    console.log(this.props.locale)
+    var english = this.props.locale === "en-US"  ? "green" : "red" 
+    var french = this.props.locale === "en-US" ? "red" : "green" 
     return (
         <div style={{padding:"2px"}}>
            <ToggleButtonGroup
@@ -18,10 +21,10 @@ export default class Locale extends React.PureComponent {
             // onChange={handleAlignment}
             aria-label="text alignment"
           >
-            <ToggleButton value="left" aria-label="left aligned" style={{backgroundColor:"red", height:"30px"}}>
+            <ToggleButton value="left" aria-label="left aligned" style={{backgroundColor:english, height:"30px",  color:"white", fontWeight:"bold"}}>
               English
             </ToggleButton>
-            <ToggleButton value="right" aria-label="centered" style={{backgroundColor:"aqua", height:"30px"}}>
+            <ToggleButton value="right" aria-label="centered" style={{backgroundColor:french, height:"30px", color:"white", fontWeight:"bold"}}>
               French   
             </ToggleButton>
             

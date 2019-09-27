@@ -33,43 +33,45 @@ export default class App extends React.PureComponent<Props> {
   }
 
   handleLocale() {
-    console.log("handleLocale");
-    if (this.state.locale === "fr-FR") {
-      this.setState({
-        locale: "en-US"
-      });
-      this.getData();
-    } else {
+    if (this.state.locale === "en-US") {
       this.setState({
         locale: "fr-FR"
+      },()=>{
+        this.getData();
       });
-      this.getData();
+      
+    } else {
+      this.setState({
+        locale: "en-US"
+      },() => {
+        this.getData();
+
+      });
     }
   }
 
   handleClient() {
-    console.log("handleLocale");
     if (this.state.client === "USB Bank") {
       this.setState({
         client: "American Express Bank"
+      }, () => {
+        this.getData();
       });
-      this.getData();
     } else {
       this.setState({
         client: "USB Bank"
+      }, ()=> {
+        this.getData();
       });
-      this.getData();
     }
   }
 
   async getData() {
     await Client.getEntries({
       content_type: "webpage",
-      // locale: (this.locale == "de-DE" ? "en-US" :  "de-DE")
       locale: this.state.locale,
       "fields.webpageName": this.state.client
     }).then(response => {
-      console.log(response);
       this.setState({
         data: JSON.parse(JSON.stringify(response.items[0]))
       });
@@ -86,14 +88,14 @@ export default class App extends React.PureComponent<Props> {
               this.handleLocale();
             }}
           >
-            <Locale />
+            <Locale locale={this.state.locale}/>
           </div>
           <div
             onClick={() => {
               this.handleClient();
             }}
           >
-            <ClientSelect />
+            <ClientSelect client={this.state.client}/>
           </div>
         </center>
         <Header data={this.state.data} />

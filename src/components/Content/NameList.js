@@ -5,20 +5,37 @@ import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 
+const StyledTableCell = withStyles(theme => ({
+  head: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  body: {
+    fontSize: 14,
+  },
+}))(TableCell);
 
+const StyledTableRow = withStyles(theme => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.background.default,
+    },
+  },
+}))(TableRow);
 export default class NameList extends React.PureComponent {
     render() {
       return (
           <div >
              <Table >
-        <TableHead>
-          <TableRow>
-            <TableCell  align="left">First Name</TableCell>
-            <TableCell align="left">Last Name</TableCell>
-            <TableCell align="left">Mobile Number</TableCell>
+        <TableHead >
+          <StyledTableRow>
+            <StyledTableCell  align="left">First Name</StyledTableCell>
+            <StyledTableCell align="left">Last Name</StyledTableCell>
+            <StyledTableCell align="left">Mobile Number</StyledTableCell>
         
-          </TableRow>
+          </StyledTableRow>
         </TableHead>
         <TableBody>
           {/* {rows.map(row => (
@@ -32,26 +49,26 @@ export default class NameList extends React.PureComponent {
               <TableCell align="right">{row.protein}</TableCell>
             </TableRow>
           ))} */}
-           <TableRow key="1">
-              <TableCell align="left">Paresh</TableCell>
-              <TableCell align="left">Kadam</TableCell>
-              <TableCell align="left">8308074046</TableCell>
-            </TableRow>
-           <TableRow key="2">
-              <TableCell align="left">Neelesh</TableCell>
-              <TableCell align="left">Rajpurohit</TableCell>
-              <TableCell align="left">8308074046</TableCell>
-            </TableRow>
-           <TableRow key="3">
-              <TableCell align="left">Chinmay</TableCell>
-              <TableCell align="left">Padole</TableCell>
-              <TableCell align="left">8308074046</TableCell>
-            </TableRow>
-           <TableRow key="4">
-              <TableCell align="left">Shravan</TableCell>
-              <TableCell align="left">Ramdurg</TableCell>
-              <TableCell align="left">8308074046</TableCell>
-            </TableRow>
+           <StyledTableRow key="1">
+              <StyledTableCell align="left">Paresh</StyledTableCell>
+              <StyledTableCell align="left">Kadam</StyledTableCell>
+              <StyledTableCell align="left">8308074046</StyledTableCell>
+            </StyledTableRow>
+           <StyledTableRow key="2">
+              <StyledTableCell align="left">Nillesh</StyledTableCell>
+              <StyledTableCell align="left">Rajpurohit</StyledTableCell>
+              <StyledTableCell align="left">8308074046</StyledTableCell>
+            </StyledTableRow>
+           <StyledTableRow key="3">
+              <StyledTableCell align="left">Chinmay</StyledTableCell>
+              <StyledTableCell align="left">Padole</StyledTableCell>
+              <StyledTableCell align="left">8308074046</StyledTableCell>
+            </StyledTableRow>
+           <StyledTableRow key="4">
+              <StyledTableCell align="left">Shravan</StyledTableCell>
+              <StyledTableCell align="left">Ramdurg</StyledTableCell>
+              <StyledTableCell align="left">8308074046</StyledTableCell>
+            </StyledTableRow>
         </TableBody>
       </Table>
           </div>

@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import { createClient, Entry } from "contentful";
+import Paper from "@material-ui/core/Paper";
 
 export default class HeaderText extends React.PureComponent {
   constructor(props) {
@@ -23,7 +24,18 @@ export default class HeaderText extends React.PureComponent {
           {this.props.data.fields.header.fields.headerTitle}
         </Typography>
         <div>
+          <center>
+          <Paper
+          style={{
+              width: "40%",
+              marginTop: "30px",
+              marginBottom: "50px",
+             
+            }}>
+
         <div dangerouslySetInnerHTML={ {__html: data}} />
+        </Paper>
+            </center>
           </div>
       </div>
     );
